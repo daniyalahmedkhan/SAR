@@ -2,11 +2,13 @@ package shootingrealworldgame.sar.SplashScreen;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.daimajia.numberprogressbar.OnProgressBarListener;
@@ -16,13 +18,17 @@ import java.util.TimerTask;
 
 import shootingrealworldgame.sar.Activites.MainActivity;
 import shootingrealworldgame.sar.R;
+import shootingrealworldgame.sar.Utilis.Typewriter;
 
 public class Splash extends Activity implements OnProgressBarListener {
 
     private Timer timer;
 
     private NumberProgressBar number_progress_bar;
+    MediaPlayer mPlayer;
 
+
+    Typewriter textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,15 @@ public class Splash extends Activity implements OnProgressBarListener {
 
         setContentView(R.layout.activity_splash);
 
+
+
+        textView = (Typewriter)findViewById(R.id.typewriter);
+        //Add a character every 150ms
+        textView.setCharacterDelay(250);
+        textView.animateText("Real World Game");
+
+        mPlayer  = MediaPlayer.create(Splash.this, R.raw.sa);
+        mPlayer.start();
 
 
         number_progress_bar = (NumberProgressBar)findViewById(R.id.number_progress_bar);
@@ -65,7 +80,7 @@ public class Splash extends Activity implements OnProgressBarListener {
                 @Override
                 public void run() {
 
-
+                    mPlayer.stop();
                     Intent intent = new Intent(Splash.this , MainActivity.class);
                     startActivity(intent);
                 }
