@@ -3,7 +3,6 @@ package shootingrealworldgame.sar.SplashScreen;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -15,7 +14,7 @@ import com.daimajia.numberprogressbar.OnProgressBarListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import shootingrealworldgame.sar.MainActivity;
+import shootingrealworldgame.sar.Activites.MainActivity;
 import shootingrealworldgame.sar.R;
 
 public class Splash extends Activity implements OnProgressBarListener {
