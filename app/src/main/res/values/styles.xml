@@ -11,8 +11,5 @@
 
 
     <!-- Variation on the Light theme that turns off the title -->
-    <style name="MyTheme" parent="android:style/Theme.Black">
-        <item name="android:windowNoTitle">true</item>
-    </style>
 
 </resources>
